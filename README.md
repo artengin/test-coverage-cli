@@ -30,7 +30,7 @@ Place coverage-check.php in your project root and run:
 ```bash
 php coverage-check.php coverage.xml
 ```
-![Демо](demo.png)
+![Demo](demo.png)
 
 ## Notes & troubleshooting
 
