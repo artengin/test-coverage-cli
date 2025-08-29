@@ -161,10 +161,20 @@ foreach ($fileNodes as $fileNode) {
     }
 
     if (!empty($uncoveredLines)) {
+        $fullPath = findExistingFile($covPath, $projectRoot);
+
+        // Prefer showing a project-relative path when possible, fall back to
+        // a normalized coverage path otherwise.
+        if ($fullPath !== null) {
+            $display = ltrim(str_replace($projectRoot, '', $fullPath), "/\\");
+        } else {
+            $display = shortDisplayPath($covPath);
+        }
+
         $files[] = [
             'covPath' => $covPath,
-            'display' => shortDisplayPath($covPath),
-            'full' => findExistingFile($covPath, $projectRoot),
+            'display' => $display,
+            'full' => $fullPath,
             'uncovered' => array_values(array_unique($uncoveredLines)),
             'covered' => $coveredCount,
             'total' => $totalCount,
