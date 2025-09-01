@@ -15,12 +15,12 @@ Run from your Laravel or project root so file paths in the XML match source file
 
 - Laravel:
 ```bash
-php artisan test -- --coverage-clover=coverage.xml
+php artisan test --coverage-clover=coverage.xml
 ```
 
 - Laravel with Xdebug environment:
 ```bash
-XDEBUG_MODE=coverage php artisan test -- --coverage-clover=coverage.xml
+XDEBUG_MODE=coverage php artisan test --coverage-clover=coverage.xml
 ```
 
 ## Run the coverage checker
